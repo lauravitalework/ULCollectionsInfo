@@ -49,14 +49,6 @@ namespace ULCollectionsInfo
             String[] line = commaLine.Split(',');
             try
             {
-
-
-                
-                
-
-
-
-
                 String bid = line[3].Trim();
                 String bid2 = line.Length > 18 ? line[18] : line[3].Trim();
                 this.shortId = bid2.Length == 0 ? bid : bid.Length <= bid2.Length ? bid : bid2;
@@ -69,7 +61,7 @@ namespace ULCollectionsInfo
                 gender = line[15].ToUpper();
                 dob = line[16].Trim();
                 type = line[17].ToUpper();
-                language = line[20].ToUpper();
+                 
                 if (fileStruct=="DAY")
                 {
                     present = line[19].ToUpper() == "PRESENT";
@@ -83,7 +75,7 @@ namespace ULCollectionsInfo
                     endDate = Convert.ToDateTime(line[11]);
                     absences = line[12].Trim();
                 }
-                
+                language = line[20].ToUpper();
             }
             catch (Exception e)
             {

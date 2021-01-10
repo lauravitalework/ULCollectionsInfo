@@ -57,36 +57,50 @@ namespace ULCollectionsInfo
                     {
                         DateTime recStartTimeOriginal = DateTime.Parse(recording.Attributes["startClockTime"].Value);
                         DateTime recEndTimeOriginal = DateTime.Parse(recording.Attributes["endClockTime"].Value);
+                        Boolean pass = (((!dir.Contains("_AM")) && (!dir.Contains("_PM"))) ||
+                           (dir.Contains("_AM") && recStartTimeOriginal.Hour<11) ||
+                           (dir.Contains("_PM") && recStartTimeOriginal.Hour >= 11));
+
+
                         if (isSameDay( recStartTimeOriginal))///
                         {
-                            if("14865" == itslenaId)
+
+
+                            if ("14865" == itslenaId)
                             {
                                 bool stop=true;
                             }
                             Subject sm = findByLenaId(itslenaId);///
-                           // this.dayMapping[sm.mapId].itsRecs.dataFiles.Add(file);
+                            sm.itsRecs.startTimes.Add(recStartTimeOriginal);
+                            sm.itsRecs.endTimes.Add(recEndTimeOriginal);
 
-                              sm.itsRecs.dataFiles.Add(file);
+                            // this.dayMapping[sm.mapId].itsRecs.dataFiles.Add(file);
 
-                            //startTime="PT0.00S" endTime="PT15490.61S"
-                            String szSecs = recording.Attributes["startTime"].Value.ToString().Substring(2);
+                            sm.itsRecs.dataFiles.Add(file);
 
-                            szSecs = szSecs.Substring(0, szSecs.Length - 1);
-                            double startSecs = Convert.ToDouble(szSecs);
-                            szSecs = recording.Attributes["endTime"].Value.ToString().Substring(2);
-                            szSecs = szSecs.Substring(0, szSecs.Length - 1);
-                            double endSecs = Convert.ToDouble(szSecs);
-                            double totalSecs = endSecs - startSecs;
-                            sm.itsRecs.ms += (totalSecs * 1000);
-                            if (sm.itsRecs.startTime<day || recStartTimeOriginal< sm.itsRecs.startTime)
+                            if (pass)
                             {
-                                sm.itsRecs.startTime = recStartTimeOriginal;
+                                //startTime="PT0.00S" endTime="PT15490.61S"
+                                String szSecs = recording.Attributes["startTime"].Value.ToString().Substring(2);
 
-                            }
-                            if (sm.itsRecs.endTime > day || recEndTimeOriginal > sm.itsRecs.endTime)
-                            {
-                                sm.itsRecs.endTime = recEndTimeOriginal;
+                                szSecs = szSecs.Substring(0, szSecs.Length - 1);
+                                double startSecs = Convert.ToDouble(szSecs);
+                                szSecs = recording.Attributes["endTime"].Value.ToString().Substring(2);
+                                szSecs = szSecs.Substring(0, szSecs.Length - 1);
+                                double endSecs = Convert.ToDouble(szSecs);
+                                double totalSecs = endSecs - startSecs;
+                                sm.itsRecs.ms += (totalSecs * 1000);
 
+
+                                if (sm.itsRecs.startTime < day || recStartTimeOriginal < sm.itsRecs.startTime)
+                                {
+                                    sm.itsRecs.startTime = recStartTimeOriginal;
+
+                                }
+                                if (sm.itsRecs.endTime > day || recEndTimeOriginal > sm.itsRecs.endTime)
+                                {
+                                    sm.itsRecs.endTime = recEndTimeOriginal;
+                                }
                             }
                         }
                     }

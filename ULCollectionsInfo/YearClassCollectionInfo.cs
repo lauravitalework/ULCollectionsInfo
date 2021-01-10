@@ -196,7 +196,7 @@ namespace ULCollectionsInfo
         }
         public void setBaseDayMappings(String commaLine)
         {
-            Subject si = (Subject)new Subject(commaLine, mapById);
+             
             String[] line = commaLine.Split(',');
             //11 12 13
             DateTime s = Convert.ToDateTime(line[11]);
@@ -204,6 +204,7 @@ namespace ULCollectionsInfo
             String absences = line[13].Trim();
             foreach(DateTime day in collectionDaysInfo.Keys)
             {
+                Subject si = (Subject)new Subject(commaLine, mapById);
                 String szDay = day.Month + "/" + day.Day + "/" + day.Year;
 
                 DateTime start = new DateTime(day.Year, day.Month, day.Day, 0, 0, 0);
@@ -417,41 +418,65 @@ namespace ULCollectionsInfo
                 {
                     foreach (Subject sm in dc.dayMapping[subject])
                     {
-
-                        Subject sMap = sm;
-                        if(this.baseMappings.ContainsKey(sm.mapId))
-                        sMap = this.baseMappings[sm.mapId];
-
-                        sw.Write(classroom + "," + day.Month + "/" + day.Day + "/" + day.Year + "," +
-                            sm.longId + "," +
-                            sm.shortId + "," +
-                            (sm.present ? "PRESENT" : "ABSENT") + "," +
-                            sm.lenaId + "," +
-                            sm.leftUbi + "," +
-                            sm.rightUbi + "," +
-                            sm.itsRecs.ms+","+
-                            sm.ubiRecs.ms + "," +
-                            sm.cotalkRecs.ms + "," +
-                            sm.leftUbiRecs.totalLogs + "," +
-                            sm.rightUbiRecs.totalLogs + "," +
-                            sm.ubiRecs.totalLogs + "," +
-                            sm.cotalkRecs.totalLogs + "," +
-                            getTimeStr(sm.itsRecs.startTime) + "," +
-                            getTimeStr(sm.itsRecs.endTime) + "," +
-                            getTimeStr(sm.ubiRecs.startTime)+","+
-                            getTimeStr(sm.ubiRecs.endTime) + "," +
-                            getTimeStr(sm.cotalkRecs.startTime) + "," +
-                            getTimeStr(sm.cotalkRecs.endTime) + ","+
-                            sMap.type+","+
-                            sMap.diagnosis + "," +
-                            sMap.language + "," +
-                            sMap.gender + "," );
-                        String szFiles = "";
-                        foreach (String szItsFile in sm.itsRecs.dataFiles)
+                        try
                         {
-                            szFiles = szFiles + (szFiles != "" ? "|" : "") + szItsFile;
+                            Subject sMap = sm;
+                            if (this.baseMappings.ContainsKey(sm.mapId))
+                                sMap = this.baseMappings[sm.mapId];
+
+
+                            String lenaStarts = "";
+                            String lenaEnds = "";
+
+                            foreach (DateTime startDate in sm.itsRecs.startTimes)
+                            {
+                                lenaStarts = lenaStarts + (lenaStarts != "" ? "|" : "") + getTimeStr(startDate);
+                            }
+                            foreach (DateTime endDate in sm.itsRecs.endTimes)
+                            {
+                                lenaEnds = lenaEnds + (lenaEnds != "" ? "|" : "") + getTimeStr(endDate);
+                            }
+                            sw.Write(classroom + "," + day.Month + "/" + day.Day + "/" + day.Year + "," +
+                                sm.longId + "," +
+                                sm.shortId + "," +
+                                (sm.present ? "PRESENT" : "ABSENT") + "," +
+                                sm.lenaId + "," +
+                                sm.leftUbi + "," +
+                                sm.rightUbi + "," +
+                                sm.itsRecs.ms + "," +
+                                sm.ubiRecs.ms + "," +
+                                sm.cotalkRecs.ms + "," +
+                                ((sm.itsRecs.ms/60000)/60) + "," +
+                                ((sm.ubiRecs.ms / 60000) / 60) + "," +
+                                ((sm.cotalkRecs.ms / 60000)/ 60) + "," +
+                                sm.leftUbiRecs.totalLogs + "," +
+                                sm.rightUbiRecs.totalLogs + "," +
+                                sm.ubiRecs.totalLogs + "," +
+                                sm.cotalkRecs.totalLogs + "," +
+                                getTimeStr(sm.itsRecs.startTime) + "," +
+                                getTimeStr(sm.itsRecs.endTime) + "," +
+                                lenaStarts + "," +
+                                lenaEnds + "," +
+                                getTimeStr(sm.ubiRecs.startTime) + "," +
+                                getTimeStr(sm.ubiRecs.endTime) + "," +
+                                getTimeStr(sm.cotalkRecs.startTime) + "," +
+                                getTimeStr(sm.cotalkRecs.endTime) + "," +
+                                sMap.type + "," +
+                                sMap.diagnosis + "," +
+                                sMap.language + "," +
+                                sMap.gender + ",");
+                            String szFiles = "";
+                            foreach (String szItsFile in sm.itsRecs.dataFiles)
+                            {
+                                szFiles = szFiles + (szFiles != "" ? "|" : "") + szItsFile;
+                            }
+                            sw.WriteLine(szFiles);
                         }
-                        sw.WriteLine(szFiles);
+                        catch (Exception e)
+                        {
+                            Boolean stop = true;
+                        }
+
 
                     }
 
@@ -500,8 +525,8 @@ namespace ULCollectionsInfo
                 sw.WriteLine("");
                 sw.WriteLine(classroom + " CLASSROOM DAYS SUBJECTS INFO: ");
                 sw.WriteLine("CLASSROOM,DATE,LONG_ID,SHORT_ID,STATUS,"+
-                    "LENAID,LEFTUBI,RIGHTUBI,LENAMS,UBIMS,ULMS,LEFTUBILOGS,RIGHTUBILOGS,UBILOGS,ULLOGS,LENASTART,LENAEND,UBISTART,UBIEND,ULSTART,ULEND," +
-                    "TYPE,DIAGNOSIS,LANGUAGE,GENDE,ITSFILES."
+                    "LENAID,LEFTUBI,RIGHTUBI,LENAMS,UBIMS,ULMS,LENAHRS,UBIHRS,ULHRS,LEFTUBILOGS,RIGHTUBILOGS,UBILOGS,ULLOGS,LENASTART,LENAEND,LENASTARTS,LENAENDS,UBISTART,UBIEND,ULSTART,ULEND," +
+                    "TYPE,DIAGNOSIS,LANGUAGE,GENDER,ITSFILES."
                     );
 
             }

@@ -17,19 +17,257 @@ namespace ULCollectionsInfo
         {
             YearClassCollectionInfo y;
             String fn = "";
-            //_11_20_2020_180139289
+            //_10_21_2021_436050853
+            //_10_21_2021_896282214 T1HACK
 
-            //7_10_2020_1186946197 TURTLES
+            fn = "REVAM_18199_INFO_" + getVersionStr() + ".CSV";
+            String[] szDaysAR = { "1/30/2019", "3/1/2019", "3/19/2019", "4/24/2019", "5/28/2019" };
+            y = new YearClassCollectionInfo(
+                "E:\\CLASSROOMS_OLD\\PRIDE_REVM_AM",   //"\\\\datastore01.psy.miami.edu\\Groups\\LPerry_Lab\\IBSS\\PRIDE\\PRIDE_REVM_1819\\PRIDE_REVM_AM",
+                "PRIDE_REVM_AM",
+                "DAY",
+                new DateTime(2019, 1, 1),
+                new DateTime(2019, 7, 1),
+                szDaysAR,
+                "E:\\CLASSROOMS_OLD\\PRIDE_REVM_AM\\SYNC_T1HACK",//T1HACK",
+                                                                 //"G:\\CLASSROOMS_OLD\\PRIDE_REVM\\PRIDE_REVM_AM\\SYNC",
+               "_10_21_2021_896282214");// "_7_7_2020_387465067");// "_7_7_2020_1424632065"); // "_5_19_2020_1455294013");// "_9_9_2019_1999988941");
+            //10THOFSECTALKING_1_30_2019_9_9_2019_1999988941
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+
+
+
+            fn = "REVAM_18199_INFO_" + getVersionStr() + ".CSV";
+            y = new YearClassCollectionInfo(
+                "E:\\CLASSROOMS_OLD\\PRIDE_REVM_AM",   //"\\\\datastore01.psy.miami.edu\\Groups\\LPerry_Lab\\IBSS\\PRIDE\\PRIDE_REVM_1819\\PRIDE_REVM_AM",
+                "PRIDE_REVM_AM",
+                "DAY",
+                new DateTime(2019, 1, 1),
+                new DateTime(2019, 7, 1),
+                szDaysAR,
+                "E:\\CLASSROOMS_OLD\\PRIDE_REVM_AM\\SYNC",//T1HACK",
+                                                          //"G:\\CLASSROOMS_OLD\\PRIDE_REVM\\PRIDE_REVM_AM\\SYNC",
+               "_10_21_2021_436050853");// "_7_7_2020_387465067");// "_7_7_2020_1424632065"); // "_5_19_2020_1455294013");// "_9_9_2019_1999988941");
+            //10THOFSECTALKING_1_30_2019_9_9_2019_1999988941
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+
+
+
+            String[] szDaysPRIDEPM1819 = { "01/25/2019", "02/20/2019", "03/20/2019", "04/16/2019", "5/30/2019" };
+            y = new YearClassCollectionInfo(
+                "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_PM",
+                "PRIDE_LEAP_PM",
+                "DAY",
+                new DateTime(2018, 7, 1),
+                new DateTime(2019, 7, 1),
+                szDaysPRIDEPM1819,
+                "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_PM\\SYNC_T1HACK",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
+                "_10_20_2021_517585603", "SHORTID");//", "SHORTID"); _5_31_2020_1136973128
+            fn = "ALL_PRIDE_LEAP_PM_1819_INFO_10202021T1HACK" + getVersionStr() + ".CSV";
+          /*  y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+            */
+            y = new YearClassCollectionInfo(
+              "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_PM",
+              "PRIDE_LEAP_PM",
+              "DAY",
+              new DateTime(2018, 7, 1),
+              new DateTime(2019, 7, 1),
+              szDaysPRIDEPM1819,
+              "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_PM\\SYNC",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
+              "_10_20_2021_213911143", "SHORTID");//", "SHORTID"); _5_31_2020_1136973128
+            fn = "ALL_PRIDE_LEAP_PM_1819_INFO_10202021" + getVersionStr() + ".CSV";
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+
+
+            fn = "LEAPAM_1920_INFO_" + getVersionStr() + "T1HACK.CSV";
+            String[] szDays = { "11/1/2019", "12/9/2019", "1/30/2020", "2/28/2020", "3/9/2020" };
+            y = new YearClassCollectionInfo(
+                "E:\\CLASSROOMS1920\\LEAP_AM_1920",
+                "LEAP_AM_1920",
+                "DAY",
+                new DateTime(2019, 10, 1),
+                new DateTime(2020, 7, 1),
+                szDays,
+                "E:\\CLASSROOMS1920\\LEAP_AM_1920\\SYNC_T1HACK",
+                "_10_21_2021_1185809464");// "_3_12_2021_1528167707");
+
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+             
+
+
+            String[] szDaysPRIDEAM1819 = { "01/23/2019", "02/20/2019", "03/20/2019", "04/16/2019", "5/30/2019" };
+            y = new YearClassCollectionInfo(
+                "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM",
+                "PRIDE_LEAP_AM",
+                "DAY",
+                new DateTime(2018, 7, 1),
+                new DateTime(2019, 7, 1),
+                szDaysPRIDEAM1819,
+                "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC_T1HACK",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
+                "_10_21_2021_1185809464", "SHORTID");//"_5_31_2020_1136973128" "_10_26_2020_478216537", "SHORTID");
+            fn = "ALL_PRIDE_LEAP_AM_1819_INFO_102021T1HACK" + getVersionStr() + ".CSV";
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+            y = new YearClassCollectionInfo(
+                "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM",
+                "PRIDE_LEAP_AM",
+                "DAY",
+                new DateTime(2018, 7, 1),
+                new DateTime(2019, 7, 1),
+                szDaysPRIDEAM1819,
+                "E:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
+                "_10_21_2021_1281767833", "SHORTID");//"_5_31_2020_1136973128" "_10_26_2020_478216537", "SHORTID");
+            fn = "ALL_PRIDE_LEAP_AM_1819_INFO_102021" + getVersionStr() + ".CSV";
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+
+
+
+
+
+ 
+
+            //_3_30_2021_632814030  _5_18_2021_1077718525
+
+
+            String[] szDays_StarFish_2021 = { "3/16/2021","4/6/2021","4/13/2021","4/27/2021","5/20/2021","5/25/2021","6/8/2021","6/23/2021","7/28/2021" };
+            y = new YearClassCollectionInfo(
+                "E:\\StarFish_2021",
+                "StarFish_2021",
+                "DAY",
+                new DateTime(2020, 7, 1),
+                new DateTime(2021, 7, 1),
+                szDays_StarFish_2021,
+                "E:\\StarFish_2021\\SYNC\\COTALK",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
+                "_GR0_22_5_081721_1613499647", "LONGID");
+            fn = "StarFish_2021_INFOG081821" + getVersionStr() + ".CSV";
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("DAYCOTALK_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+            fn = "REVAM_1920_INFO_" + getVersionStr() + ".CSV";
+            String[] szDaysR20 = { "11/6/2019", "12/11/2019", "1/29/2020", "2/26/2020" };
+            y = new YearClassCollectionInfo(
+                "D:\\CLASSROOMS1920\\REVM_1920\\REVM_AM_1920",
+                "REVM_AM_1920",
+                "DAY",
+                new DateTime(2019, 10, 1),
+                new DateTime(2020, 7, 1),
+                szDaysR20,
+                "D:\\CLASSROOMS1920\\REVM_1920\\REVM_AM_1920\\SYNC ",
+               "_5_18_2021_1077718525");// "_3_15_2021_234933345");// "_6_24_2020_590519601");
+            //_4_23_2020_1297734825   _4_17_2020_1173190353
+            fn = "REVAM_1920_INFO_" + getVersionStr() + ".CSV";
+            //10THOFSECTALKING_2_20_2020_3_30_2020_1999684207
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+
+
+            //_3_26_2021_2004036681 //_5_17_2021_1883023781
+            fn = "LEAP_PM_1920_INFO_ALLDAYS" + getVersionStr() + ".CSV";
+            String[] szDaysLPM = { "11/1/2019", "12/9/2019", "1/30/2020", "2/28/2020", "3/9/2020" };
+            y = new YearClassCollectionInfo(
+                "D:\\CLASSROOMS1920\\LEAP_PM_1920",
+                "LEAP_PM_1920",
+                "DAY",
+                new DateTime(2019, 10, 1),
+                new DateTime(2020, 7, 1),
+                szDaysLPM,
+                "D:\\CLASSROOMS1920\\LEAP_PM_1920\\SYNC",
+                "_5_17_2021_1883023781");// "_3_15_2021_437940515");// "_7_7_2020_1019028736");//_7_1_2020_1686857863
+            //10THOFSECTALKINGDETAIL_3_9_2020_7_1_2020_1686857863 _4_2_2020_1694794211   _4_2_2020_17314530   _4_2_2020_1674806456
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+
+            //_4_8_2021_1978454163
+            //_3_15_2021_262583388
+            //10THOFSECTALKINGDETAIL_1_30_2019_7_7_2020_1424632065
+           
+
+           
+
+
+
+
+            
+          
+
+
+
+
+
+            
             String[] szDaysT = { "11/13/2019", "12/6/2019", "1/24/2020", "2/12/2020" };
             y = new YearClassCollectionInfo(
-                "D:\\CLASSROOMS1920\\TURTLES_1920",
+                "F:\\CLASSROOMS1920\\TURTLES_1920",
                 "TURTLES_1920",
                 "DAY",
                 new DateTime(2019, 10, 1),
                 new DateTime(2020, 7, 1),
                 szDaysT,
-                "D:\\CLASSROOMS1920\\TURTLES_1920\\SYNC ",
-               "_11_20_2020_180139289");// "_4_21_2020_1508344901");
+                "F:\\CLASSROOMS1920\\TURTLES_1920\\SYNC ",
+               "_3_28_2021_187694180");// "_3_14_2021_712558044");// "_11_20_2020_180139289");// "_4_21_2020_1508344901");
             fn = "TURTLES_1920_INFO_" + getVersionStr() + ".CSV";
             y.setItsInfo();
             y.setUbiInfo();
@@ -40,17 +278,49 @@ namespace ULCollectionsInfo
             y.printYearDaysSubjectsInfo(fn, true, true);
 
 
-            String[] szDays_StarFish_2021 = { "11/24/2020" };
+
+             
+
+
+
+            String[] szDaysAV = { "1/23/2020", "2/18/2020" };
             y = new YearClassCollectionInfo(
-                "C:\\LVL\\StarFish_2021",
-                "StarFish_2021",
+                "F:\\CLASSROOMS1920\\AVENGERS_1920",
+                "AVENGERS_1920",
+                "DAY",
+                new DateTime(2019, 10, 1),
+                new DateTime(2020, 7, 1),
+                szDaysAV,
+                "F:\\CLASSROOMS1920\\AVENGERS_1920\\SYNC ",
+                "_3_26_2021_1491103679");// "_3_13_2021_657484266");// "_7_10_2020_1056069550");// "_4_30_2020_292076670"); _3_26_2021_1491103679
+            fn = "AVENGERS_1920_INFO_" + getVersionStr() + ".CSV";
+            y.setItsInfo();
+            y.setUbiInfo();
+            y.setULInfo("10THOFSECTALKINGDETAIL_");
+
+            y.printYearInfo(fn, true, false);
+            y.printYearDaysInfo(fn, true, true);
+            y.printYearDaysSubjectsInfo(fn, true, true);
+
+            //_3_14_2021_712558044
+            
+            //_3_26_2021_117276707
+          
+
+            
+ 
+            
+            String[] szDays_AppleTree_1920 = { "9/19/2019", "10/1/2019", "10/29/2019", "11/5/2019", "11/19/2019", "12/10/2019", "12/17/2019", "1/8/2020", "1/14/2020", "2/4/2020", "2/11/2020", "3/10/2020" };
+            y = new YearClassCollectionInfo(
+                "G:\\CLASSROOMS1920\\AppleTree_1920",
+                "AppleTree_1920",
                 "DAY",
                 new DateTime(2019, 7, 1),
                 new DateTime(2020, 7, 1),
-                szDays_StarFish_2021,
-                "C:\\LVL\\StarFish_2021\\SYNC",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
-                "_12_4_2020_86341961", "SHORTID");
-            fn = "StarFish_2021_INFOG120420" + getVersionStr() + ".CSV";
+                szDays_AppleTree_1920,
+                "G:\\CLASSROOMS1920\\AppleTree_1920\\SYNC",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
+                "_7_22_2020_1260238996", "SHORTID");
+            fn = "AppleTree_1920_INFO" + getVersionStr() + ".CSV";
             y.setItsInfo();
             y.setUbiInfo();
             y.setULInfo("10THOFSECTALKINGDETAIL_");
@@ -59,25 +329,12 @@ namespace ULCollectionsInfo
             y.printYearDaysInfo(fn, true, true);
             y.printYearDaysSubjectsInfo(fn, true, true);
 
-            //_10_26_2020_478216537
-            String[] szDaysPRIDEAM1819 = { "01/23/2019", "02/20/2019", "03/20/2019", "04/16/2019", "5/30/2019" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM",
-                "PRIDE_LEAP_AM",
-                "DAY",
-                new DateTime(2018, 7, 1),
-                new DateTime(2019, 7, 1),
-                szDaysPRIDEAM1819,
-                "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
-                "_10_26_2020_478216537", "SHORTID");//"_5_31_2020_1136973128" "_10_26_2020_478216537", "SHORTID");
-            fn = "ALL_PRIDE_LEAP_AM_1819_INFO" + getVersionStr() + ".CSV";
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
 
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
+
+             
+
+ 
+ 
 
 
             //10_20_2020_986296434
@@ -168,25 +425,7 @@ namespace ULCollectionsInfo
             //_10_8_2020_612807152
             
 
-            //_7_7_2020_783683747
-            String[] szDaysPRIDEPM1819 = { "01/25/2019", "02/20/2019", "03/20/2019", "04/16/2019", "5/30/2019" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_PM",
-                "PRIDE_LEAP_PM",
-                "DAY",
-                new DateTime(2018, 7, 1),
-                new DateTime(2019, 7, 1),
-                szDaysPRIDEPM1819,
-                "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_PM\\SYNC",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
-                "_7_7_2020_783683747", "SHORTID");//", "SHORTID"); _5_31_2020_1136973128
-            fn = "ALL_PRIDE_LEAP_PM_1819_INFO" + getVersionStr() + ".CSV";
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
-
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
+            
 
              
 
@@ -315,74 +554,9 @@ namespace ULCollectionsInfo
           
 
 
-            //_7_21_2020_1307991371
-            //9/19/2019,10/1/2019,10/29/2019,11/5/2019,11/19/2019,12/10/2019,12/17/2019,1/8/2020,1/14/2020,2/4/2020,2/11/2020,3/10/2020
-            String[] szDays_AppleTree_1920 = { "9/19/2019","10/1/2019","10/29/2019","11/5/2019","11/19/2019","12/10/2019","12/17/2019","1/8/2020","1/14/2020","2/4/2020","2/11/2020","3/10/2020" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS1920\\AppleTree_1920",
-                "AppleTree_1920",
-                "DAY",
-                new DateTime(2019, 7, 1),
-                new DateTime(2020, 7, 1),
-                szDays_AppleTree_1920,
-                "G:\\CLASSROOMS1920\\AppleTree_1920\\SYNC",// T1HACK ",// "G:\\CLASSROOMS_OLD\\PRIDE_LEAP\\PRIDE_LEAP_AM\\SYNC ",  _5_31_2020_1136973128  _7_2_2020_779521743
-                "_7_22_2020_1260238996", "SHORTID");
-            fn = "AppleTree_1920_INFO" + getVersionStr() + ".CSV";
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
-
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
-
-
             
 
-
-            
-            //10THOFSECTALKING_7_9_2019_8_9_2019_990773196.CSV
-
-
-            //_7_7_2020_1207890104
-            fn = "LEAPAM_1920_INFO_" + getVersionStr() + ".CSV";
-            String[] szDays = { "11/1/2019", "12/9/2019", "1/30/2020", "2/28/2020", "3/9/2020" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS1920\\LEAP_1920\\LEAP_AM_1920",
-                "LEAP_AM_1920",
-                "DAY",
-                new DateTime(2019, 10, 1),
-                new DateTime(2020, 7, 1),
-                szDays,
-                "G:\\CLASSROOMS1920\\LEAP_1920\\LEAP_AM_1920\\SYNC",
-                "_7_7_2020_1207890104");
-
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
-
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
-
-            String[] szDaysAV = { "1/23/2020", "2/18/2020" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS1920\\AVENGERS_1920",
-                "AVENGERS_1920",
-                "DAY",
-                new DateTime(2019, 10, 1),
-                new DateTime(2020, 7, 1),
-                szDaysAV,
-                "G:\\CLASSROOMS1920\\AVENGERS_1920\\SYNC ",
-                "_7_10_2020_1056069550");// "_4_30_2020_292076670");
-            fn = "AVENGERS_1920_INFO_" + getVersionStr() + ".CSV";
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
-
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
+             
 
             //_7_10_2020_1056069550
 
@@ -390,28 +564,7 @@ namespace ULCollectionsInfo
             //_7_7_2020_387465067
 
 
-            //10THOFSECTALKINGDETAIL_1_30_2019_7_7_2020_1424632065
-            fn = "REVAM_18199_INFO_T1HACK_" + getVersionStr() + ".CSV";
-            String[] szDaysAR = { "1/30/2019", "3/1/2019", "3/19/2019", "4/24/2019", "5/28/2019" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS_OLD\\PRIDE_REVM\\PRIDE_REVM_AM",   //"\\\\datastore01.psy.miami.edu\\Groups\\LPerry_Lab\\IBSS\\PRIDE\\PRIDE_REVM_1819\\PRIDE_REVM_AM",
-                "PRIDE_REVM_AM",
-                "DAY",
-                new DateTime(2019, 1, 1),
-                new DateTime(2019, 7, 1),
-                szDaysAR,
-                "G:\\CLASSROOMS_OLD\\PRIDE_REVM\\PRIDE_REVM_AM\\SYNC",//T1HACK",
-               //"G:\\CLASSROOMS_OLD\\PRIDE_REVM\\PRIDE_REVM_AM\\SYNC",
-               "_7_7_2020_387465067");// "_7_7_2020_1424632065"); // "_5_19_2020_1455294013");// "_9_9_2019_1999988941");
-            //10THOFSECTALKING_1_30_2019_9_9_2019_1999988941
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
-
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
-
+             
 
             //_7_2_2020_922472743
             fn = "LEAPPM_18199_INFO_T1HACK_" + getVersionStr() + ".CSV";
@@ -434,58 +587,14 @@ namespace ULCollectionsInfo
             y.printYearDaysInfo(fn, true, true);
             y.printYearDaysSubjectsInfo(fn, true, true);
 
-            fn = "LEAP_PM_1920_INFO_ALLDAYS" + getVersionStr() + ".CSV";
-            String[] szDaysLPM = { "11/1/2019", "12/9/2019", "1/30/2020", "2/28/2020", "3/9/2020" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS1920\\LEAP_1920\\LEAP_PM_1920",
-                "LEAP_PM_1920",
-                "DAY",
-                new DateTime(2019, 10, 1),
-                new DateTime(2020, 7, 1),
-                szDaysLPM,
-                "G:\\CLASSROOMS1920\\LEAP_1920\\LEAP_PM_1920\\SYNC",
-                "_7_7_2020_1019028736");//_7_1_2020_1686857863
-            //10THOFSECTALKINGDETAIL_3_9_2020_7_1_2020_1686857863 _4_2_2020_1694794211   _4_2_2020_17314530   _4_2_2020_1674806456
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
 
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
-
- 
-
-
+           
             
 
          
 
             //String[] szDaysLPM = { "11/1/2019", "12/9/2019", "1/30/2020", "2/28/2020" };
              
-
-
-            fn = "REVAM_1920_INFO_" + getVersionStr() + ".CSV";
-            String[] szDaysR20 = { "11/6/2019", "12/11/2019", "1/29/2020", "2/26/2020" };
-            y = new YearClassCollectionInfo(
-                "G:\\CLASSROOMS1920\\REVM_1920\\REVM_AM_1920",
-                "REVM_AM_1920",
-                "DAY",
-                new DateTime(2019, 10, 1),
-                new DateTime(2020, 7, 1),
-                szDaysR20,
-                "G:\\CLASSROOMS1920\\REVM_1920\\REVM_AM_1920\\SYNC ",
-                "_6_24_2020_590519601");
-            //_4_23_2020_1297734825   _4_17_2020_1173190353
-            fn = "REVAM_1920_INFO_" + getVersionStr() + ".CSV";
-            //10THOFSECTALKING_2_20_2020_3_30_2020_1999684207
-            y.setItsInfo();
-            y.setUbiInfo();
-            y.setULInfo("10THOFSECTALKINGDETAIL_");
-
-            y.printYearInfo(fn, true, false);
-            y.printYearDaysInfo(fn, true, true);
-            y.printYearDaysSubjectsInfo(fn, true, true);
 
 
             

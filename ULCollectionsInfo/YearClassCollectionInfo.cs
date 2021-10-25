@@ -122,6 +122,7 @@ namespace ULCollectionsInfo
                     }
                 }
             }
+
             if (fileStructure == "DAY")
             {
                 setDayMappings();
@@ -140,7 +141,7 @@ namespace ULCollectionsInfo
                         di.children.Add(si.mapId);
 
                     if(baseMappings.ContainsKey(si.mapId))
-                    if(baseMappings[si.mapId].diagnosis.Trim().ToUpper()=="TYPICAL" || baseMappings[si.mapId].diagnosis.Trim() == "" )
+                    if(baseMappings[si.mapId].diagnosis.Trim().ToUpper()=="TYPICAL" || baseMappings[si.mapId].diagnosis.Trim() == "" || baseMappings[si.mapId].diagnosis.Trim() == "TD")
                     {
                         if (!tChildrenRecs.ContainsKey(si.mapId))
                             tChildrenRecs.Add(si.mapId, new List<DateTime>());
@@ -151,7 +152,7 @@ namespace ULCollectionsInfo
                     }
                     else
                     {
-                        if (!atChildrenRecs.ContainsKey(si.mapId))
+                      if (!atChildrenRecs.ContainsKey(si.mapId))
                             atChildrenRecs.Add(si.mapId, new List<DateTime>());
                         atChildrenRecs[si.mapId].Add(day);
 
@@ -272,10 +273,24 @@ namespace ULCollectionsInfo
                                  
                                 if (collectionDaysInfo.ContainsKey(day))
                                 {
-                                    DateTime start = new DateTime(day.Year, day.Month, day.Day, 0, 0, 0);
-                                    DateTime end = new DateTime(day.Year, day.Month, day.Day, 23, 59, 59);
-                                    si.startDate = start;
-                                    si.endDate = end;
+                                    if(day.Year<2021)
+                                    {
+                                        DateTime start = new DateTime(day.Year, day.Month, day.Day, 0, 0, 0);
+                                        DateTime end = new DateTime(day.Year, day.Month, day.Day, 23, 59, 59);
+                                        si.startDate = start;
+                                        si.endDate = end;
+                                    }
+                                    else
+                                    {
+                                        DateTime start = new DateTime(day.Year, day.Month, day.Day, si.startDate.Hour, si.startDate.Minute, 0);
+                                        DateTime end = new DateTime(day.Year, day.Month, day.Day, si.endDate.Hour, si.endDate.Minute, 0);
+                                        si.startDate = start;
+                                        si.endDate = end;
+                                    }
+                                   
+
+
+
                                     DayCollectionInfo dayMaps = collectionDaysInfo[day];
                                     if (!dayMaps.dayMapping.ContainsKey(si.mapId))
                                     {

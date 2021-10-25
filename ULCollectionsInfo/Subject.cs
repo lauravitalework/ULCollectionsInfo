@@ -49,8 +49,8 @@ namespace ULCollectionsInfo
             String[] line = commaLine.Split(',');
             try
             {
-                String bid = line[3].Trim();
-                String bid2 = line.Length > 18 ? line[18] : line[3].Trim();
+                String bid = line[3].Trim().ToUpper();
+                String bid2 = line.Length > 18 ? line[18].Trim().ToUpper() : line[3].Trim().ToUpper();
                 this.shortId = bid2.Length == 0 ? bid : bid.Length <= bid2.Length ? bid : bid2;
                 this.longId = bid2.Length == 0 ? bid : bid.Length >= bid2.Length && bid2.Length > 0 ? bid : bid2;
                 lenaId = line[9].Trim();
@@ -65,7 +65,11 @@ namespace ULCollectionsInfo
                 if (fileStruct=="DAY")
                 {
                     present = line[19].ToUpper() == "PRESENT";
-
+                    if(line[11].Trim()!="" && line[12].Trim() != "")
+                    {
+                        startDate = Convert.ToDateTime(line[11]);
+                        endDate = Convert.ToDateTime(line[12]);
+                    }
                 }
                 else
                 {

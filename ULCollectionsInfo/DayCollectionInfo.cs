@@ -71,6 +71,31 @@ namespace ULCollectionsInfo
                                 bool stop=true;
                             }
                             Subject sm = findByLenaId(itslenaId);///
+                            double diffSecsSTart = 0;
+                            double diffSecsEnd = 0;
+                            if (day.Year>=2021)
+                            {
+                                DateTime smStart = sm.startDate;
+                                DateTime smEnd = sm.endDate;
+                                
+                                if(recStartTimeOriginal < smStart)
+                                {
+                                     
+                                    diffSecsSTart += (smStart - recStartTimeOriginal).TotalSeconds;
+                                    recStartTimeOriginal = smStart;
+                                }
+
+                                if (recEndTimeOriginal > smEnd)
+                                {
+                                   
+                                    diffSecsEnd += (recEndTimeOriginal-smEnd).TotalSeconds;
+                                    recEndTimeOriginal = smEnd;
+                                }
+                            }
+                           
+
+
+
                             sm.itsRecs.startTimes.Add(recStartTimeOriginal);
                             sm.itsRecs.endTimes.Add(recEndTimeOriginal);
 
@@ -84,10 +109,13 @@ namespace ULCollectionsInfo
                                 String szSecs = recording.Attributes["startTime"].Value.ToString().Substring(2);
 
                                 szSecs = szSecs.Substring(0, szSecs.Length - 1);
-                                double startSecs = Convert.ToDouble(szSecs);
+                                double startSecs = Convert.ToDouble(szSecs)+diffSecsSTart;
                                 szSecs = recording.Attributes["endTime"].Value.ToString().Substring(2);
                                 szSecs = szSecs.Substring(0, szSecs.Length - 1);
-                                double endSecs = Convert.ToDouble(szSecs);
+                                double endSecs = Convert.ToDouble(szSecs)-diffSecsEnd;
+
+                             
+
                                 double totalSecs = endSecs - startSecs;
                                 sm.itsRecs.ms += (totalSecs * 1000);
 
@@ -127,9 +155,15 @@ namespace ULCollectionsInfo
                     {
                         String commaLine = sr.ReadLine();
                         String[] line = commaLine.Split(',');
+                        Boolean within2021Rec = true;
                         if (line.Length > 3)
                         {
                             DateTime time = Convert.ToDateTime(line[2]);
+
+                             
+                            
+
+
                             if (isSameDay(time))
                             {
                                 if (time < start)
@@ -141,7 +175,21 @@ namespace ULCollectionsInfo
                                 String ubiId = line[1].Trim();
                                 Subject sm = findByUbiId(ubiId);///
 
-                                if (sm.mapId != "")
+                                if (day.Year >= 2021)
+                                {
+                                    DateTime smStart = sm.startDate;
+                                    DateTime smEnd = sm.endDate;
+
+                                    if (time < smStart || time>smEnd)
+                                    {
+                                        within2021Rec = false;
+                                    }
+                                     
+                                }
+
+
+
+                                if (sm.mapId != "" && within2021Rec)
                                 {
                                     String lOrR = sm.rightUbi.Trim() == ubiId.Trim() ? "r" : "l";
 
@@ -189,8 +237,12 @@ namespace ULCollectionsInfo
         public void setCotalkInfo(String dir, String cotalkVersion, String cotalkFilePrefix)
         {
             //10THOFSECTALKING_3_9_2020_3_18_2020_1590632667.CSV'
-            String ulFileName = dir+"\\"+ cotalkFilePrefix+(day.Month + "_" + day.Day + "_" + day.Year)+cotalkVersion+".CSV";
-            ulFileName = ulFileName;
+            String ulFileName = dir + "\\" +(day.Year >= 2021 ?"COTALK\\":"")+ cotalkFilePrefix +
+                (day.Year >= 2021 ?
+               (day.Month < 10 ? "0" : "") + day.Month + (day.Day < 10 ? "0" : "") + day.Day + day.Year.ToString().Substring(2):
+               (day.Month + "_" + day.Day + "_" + day.Year))
+               +cotalkVersion+".CSV";
+           
             if (File.Exists(ulFileName))
             {
                 using (StreamReader sr = new StreamReader(ulFileName))
